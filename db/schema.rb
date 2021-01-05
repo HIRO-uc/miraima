@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2021_01_05_050406) do
     t.string "encrypted_password", default: "", null: false
     t.string "nickname"
     t.integer "type_id"
-    t.integer "occupation_id"
     t.date "birth_date"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
