@@ -5,6 +5,18 @@
     <div class='form-header'>
       ユーザー情報入力
     </div>
+    
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">お名前</label>
+        <span class="indispensable">必須</span>
+      </div>
+      <div class='input-name-wrap'>
+        <%= f.text_area :last_name, class:"input-name", id:"last-name", placeholder:"例) 山田" %>
+        <%= f.text_area :first_name, class:"input-name", id:"first-name", placeholder:"例) 太郎" %>
+      </div>
+    </div>
+
     <div class='form-group'>
       <div class='form-text-wrap'>
         <label class="form-text">ニックネーム</label>
@@ -17,7 +29,7 @@
         <label class="form-text">ユーザータイプ</label>
         <span class="indispensable">必須</span>
       </div>
-      <%# <%= f.collection_select(:type_id, )%>
+      <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"type-select"})%>
     </div>
     <div class='form-group'>
       <div class='form-text-wrap'>
@@ -58,6 +70,9 @@
                     date_separator: '%s'),
                   "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
       </div>
+    </div>
+    <div class='register-btn'>
+    <%= f.submit "新規登録"%>
     </div>
   </div>
 <% end %>
