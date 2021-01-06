@@ -7,6 +7,5 @@ ja:
        last_name: 苗字
        first_name: 名前
        type_id: ユーザータイプ
-     tweet:
        text: テキスト
        image: 画像
