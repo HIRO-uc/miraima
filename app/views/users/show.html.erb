@@ -1,0 +1,13 @@
+<%= render "shared/header" %>
+<h3>ようこそ、<%= @user.nickname %>さん</h3>
+
+<div class='user_wrapper'>
+  <div class='user-type'>ユーザータイプ: <%= @user.type.name %></div>
+  <div class='user-info'>
+  <% if @user.type.name == 'ワーカー'%>
+  career
+  <% else %>
+  profile
+  <% end %>
+  </div>
+</div>

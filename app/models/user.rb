@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :type
+  has_one :profile
   validates :password,          format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: 'は半角英数字どちらも含む8文字以上で入力してください' }
   with_options presence: true do
     validates :nickname
