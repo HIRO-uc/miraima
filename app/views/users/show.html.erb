@@ -6,8 +6,12 @@
   <div class='user-info'>
   <% if @user.type.name == 'ワーカー'%>
   career
+  <% elsif @user.profile.present? %>
+    profile
+    <%= link_to '編集', edit_user_profile_path(@user) %>
   <% else %>
-  profile
+    profile
+    <%= link_to '登録', new_user_profile_path(@user) %>
   <% end %>
   </div>
 </div>
