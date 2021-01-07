@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    params.require(:profile).permit(:profile, :website).merge(user_id: params[:user_id])
+    params.require(:profile).permit(:self_introduction, :website).merge(user_id: params[:user_id])
   end
 
   def current_path_profile

@@ -1,11 +1,11 @@
 <div class="user-profile">
   <div class='profile'>
-    <% unless @user.profile.profile == '' %>
-    <%= @user.profile.profile%>
+    <% if @user.profile %>
+    <%= @user.profile.self_introduction %>
     <%end%>
   </div>
   <div class='website'>
-    <% unless @user.profile.website == '' %>
+    <% if @user.profile %>
     <%= @user.profile.website %>
     <% end %>
   </div>
