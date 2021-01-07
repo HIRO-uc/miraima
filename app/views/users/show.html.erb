@@ -1,17 +1,30 @@
 <%= render "shared/header" %>
-<h3>ようこそ、<%= @user.nickname %>さん</h3>
+
 
 <div class='user_wrapper'>
-  <div class='user-type'>ユーザータイプ: <%= @user.type.name %></div>
+  <div class="user-nickname"><h3><%= @user.nickname %></h3></div>
+  <div class='user-type'>タイプ: <%= @user.type.name %></div>
   <div class='user-info'>
   <% if @user.type.name == 'ワーカー'%>
-  career
-  <% elsif @user.profile.present? %>
-    profile
-    <%= link_to '編集', edit_user_profile_path(@user) %>
+    career
   <% else %>
-    profile
-    <%= link_to '登録', new_user_profile_path(@user) %>
+    <div class="user-profile">
+      <div class='profile'>
+        <% unless @user.profile.profile == '' %>
+        <%= @user.profile.profile%>
+        <%end%>
+      </div>
+      <div class='website'>
+        <% unless @user.profile.website == '' %>
+        <%= @user.profile.website %>
+        <% end %>
+      </div>
+    </div>
+    <% if @user.profile.blank?%>
+    <%= link_to 'プロフィールを編集', new_user_profile_path(@user) %>
+    <% else %>
+    <%= link_to 'プロフィールを編集', "/users/#{@user.id}/profiles/#{@user.profile.id}/edit" %>
+    <% end%>
   <% end %>
   </div>
 </div>

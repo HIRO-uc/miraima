@@ -1,0 +1,23 @@
+<%= link_to '戻る', user_path(@profile.user_id) %>
+<%= form_with model: @profile, url: "/users/#{@profile.user_id}/profiles/#{@profile.id}", local: true do |f| %>
+  <div>
+    <div class='form-header'>
+    プロフィール編集
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">自己紹介</label>
+      </div>
+      <%= f.text_area :profile, class: 'input-default', id: 'profile' %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">ウェブサイト</label>
+      </div>
+      <%= f.text_field :website, class: 'input-default', id: 'website' %>
+    </div>
+    <div class='register-btn'>
+    <%= f.submit 'プロフィールを編集' %>
+    </div>
+  </div>
+<% end%>
