@@ -1,0 +1,17 @@
+<div class="user-profile">
+  <div class='profile'>
+    <% unless @user.profile.profile == '' %>
+    <%= @user.profile.profile%>
+    <%end%>
+  </div>
+  <div class='website'>
+    <% unless @user.profile.website == '' %>
+    <%= @user.profile.website %>
+    <% end %>
+  </div>
+</div>
+<% if @user.profile.blank?%>
+<%= link_to 'プロフィールを編集', new_user_profile_path(@user) %>
+<% else %>
+<%= link_to 'プロフィールを編集', "/users/#{@user.id}/profiles/#{@user.profile.id}/edit" %>
+<% end%>
