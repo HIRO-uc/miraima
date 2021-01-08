@@ -10,9 +10,9 @@
       ウェブサイト: <%= @user.profile.website %>
       <% end %>
     </div>
-    <% if user_signed_in?  && @user.profile.blank?%>
+    <% if @user.profile.blank?%>
     <%= link_to 'プロフィールを編集', new_user_profile_path(@user) %>
-    <% elsif user_signed_in? %>
+    <% else %>
     <%= link_to 'プロフィールを編集', "/users/#{@user.id}/profiles/#{@user.profile.id}/edit" %>
     <% end%>
   </div>

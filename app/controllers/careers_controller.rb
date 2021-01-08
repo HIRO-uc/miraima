@@ -1,6 +1,5 @@
 class CareersController < ApplicationController
   before_action :current_path_career, only: [:edit, :update]
-  before_action :move_to_index
 
   def new
     @user = User.find(params[:user_id])
@@ -28,11 +27,5 @@ class CareersController < ApplicationController
 
   def current_path_career
     @career = Career.find(params[:id])
-  end
-
-  def move_to_index
-    unless user_signed_in? && (params[:user_id] == current_user.id)
-      redirect_to root_path
-    end
   end
 end
