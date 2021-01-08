@@ -1,0 +1,8 @@
+<%= render "shared/header" %>
+<div class='user_wrapper'>
+  <div class="user-nickname"><h3><%= @user.nickname %></h3></div>
+  <div class='user-type'>タイプ: <%= @user.type.name %></div>
+  <div class='user-info'>
+  <%= render partial: 'profiles/show' %>
+  </div>
+</div>

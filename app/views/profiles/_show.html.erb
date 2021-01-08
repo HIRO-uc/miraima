@@ -1,0 +1,49 @@
+<div class="user-info">
+  <div class='user-profile'>
+    <div class='self-introduction'>
+      <% if @user.profile && (@user.profile.self_introduction != '')%>
+      自己紹介: <%= @user.profile.self_introduction %>
+      <%end%>
+    </div>
+    <div class='website'>
+      <% if @user.profile && (@user.profile.website != '') %>
+      ウェブサイト: <%= @user.profile.website %>
+      <% end %>
+    </div>
+    <% if @user.profile.blank?%>
+    <%= link_to 'プロフィールを編集', new_user_profile_path(@user) %>
+    <% else %>
+    <%= link_to 'プロフィールを編集', "/users/#{@user.id}/profiles/#{@user.profile.id}/edit" %>
+    <% end%>
+  </div>
+  <% if @user.type.name == 'ワーカー'%>
+  <div class='user-career'>
+    <div class='worthwhile'>
+      <% if @user.career && (@user.career.worthwhile != '') %>
+      仕事のやりがい: <%= @user.career.worthwhile %>
+      <% end %>
+    </div>
+    <div class='ideal-candidate'>
+      <% if @user.career && (@user.career.ideal_candidate != '') %>
+      業界が求める人物像: <%= @user.career.ideal_candidate %>
+      <% end %>
+    </div>
+    <div class='can-do-now'>
+      <% if @user.career && (@user.career.can_do_now != '') %>
+      今からできること: <%= @user.career.can_do_now %>
+      <% end %>
+    </div>
+    <div class='recommended-book'>
+      <% if @user.career && (@user.career.recommended_book != '') %>
+      おすすめの本: <%= @user.career.recommended_book %>
+      <% end %>
+    </div>
+  </div>
+  <% if @user.career.blank? && @user.type.name == 'ワーカー' %>
+  <%= link_to 'キャリアを編集', new_user_career_path(@user) %>
+  <% elsif @user.type.name == 'ワーカー'%>
+  <%= link_to 'キャリアを編集', "/users/#{@user.id}/careers/#{@user.career.id}/edit" %>
+  <% end%>
+  <% end %>
+</div>
+

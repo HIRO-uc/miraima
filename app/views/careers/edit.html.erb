@@ -1,0 +1,35 @@
+<%= link_to '戻る', user_path(@career.user_id) %>
+<%= form_with model: @career, url: "/users/#{@career.user_id}/careers/#{@career.id}", local: true do |f| %>
+  <div>
+    <div class='form-header'>
+    キャリア編集
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">仕事のやりがい</label>
+      </div>
+      <%= f.text_area :worthwhile, class: 'input-default', id: 'worthwhile' %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">業界が求める人物像</label>
+      </div>
+      <%= f.text_area :ideal_candidate, class: 'input-default', id: 'ideal-candidate' %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">今からできること</label>
+      </div>
+      <%= f.text_area :can_do_now, class: 'input-default', id: 'can-do-now' %>
+    </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">おすすめの本</label>
+      </div>
+      <%= f.text_area :recommended_book, class: 'input-default', id: 'recommended-book' %>
+    </div>
+    <div class='register-btn'>
+    <%= f.submit 'キャリアを編集' %>
+    </div>
+  </div>
+<% end%>
