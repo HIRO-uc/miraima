@@ -1,0 +1,13 @@
+<div class='tips-form'>
+<%= form_with model: @tip, url: tips_path, local: true do |f| %>
+<div class="form-group">
+  <div class='form-text-wrap'>
+    <label class="form-text">tipsを投稿</label>
+  </div>
+  <%= f.text_area :text, class: 'input-default', id: 'tips-text' %>
+</div>
+<div class='register-btn'>
+<%= f.submit '投稿' %>
+</div>
+<% end %>
+</div>
