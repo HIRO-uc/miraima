@@ -40,9 +40,9 @@
     </div>
   </div>
   <% if @user.career.blank? && @user.type.name == 'ワーカー' %>
-  <%= link_to 'キャリアを登録', new_user_career_path(@user) %>
+  <%= link_to 'キャリアを編集', new_user_career_path(@user) %>
   <% elsif @user.type.name == 'ワーカー'%>
-  <%= link_to 'キャリアを編集', "/users/#{@user.id}/ careers/#{@user.career.id}/edit" %>
+  <%= link_to 'キャリアを編集', "/users/#{@user.id}/careers/#{@user.career.id}/edit" %>
   <% end%>
   <% end %>
 </div>
