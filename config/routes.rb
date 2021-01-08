@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'home/index'
   devise_for :users
-  root to: 'tips#index'
+  root to: 'home#index'
   resources :tips, only: [:index]
   resources :users, only: [:show] do
     resources :profiles, only: [:new, :create, :edit, :update]

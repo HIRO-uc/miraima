@@ -1,0 +1,40 @@
+<div class="user-info">
+  <div class='self-introduction'>
+    <% if @user.career && (@user.career.self_introduction != '')%>
+    自己紹介: <%= @user.career.self_introduction %>
+    <%end%>
+  </div>
+
+  <div class=''>
+    <% if @user.career && (@user.career. != '') %>
+    : <%= @user.career. %>
+    <% end %>
+  </div>
+  <div class=''>
+    <% if @user.career && (@user.career. != '') %>
+    : <%= @user.career. %>
+    <% end %>
+  </div>
+  <div class=''>
+    <% if @user.career && (@user.career. != '') %>
+    : <%= @user.career. %>
+    <% end %>
+  </div>
+  <div class=''>
+    <% if @user.career && (@user.career. != '') %>
+    : <%= @user.career. %>
+    <% end %>
+  </div>
+
+  <div class='website'>
+    <% if @user.career && (@user.career.website != '') %>
+    ウェブサイト: <%= @user.career.website %>
+    <% end %>
+  </div>
+  
+</div>
+<% if @user.career.blank?%>
+<%= link_to 'キャリアを登録', new_user_career_path(@user) %>
+<% else %>
+<%= link_to 'キャリアを編集', "/users/#{@user.id}/ careers/#{@user.career.id}/edit" %>
+<% end%>
