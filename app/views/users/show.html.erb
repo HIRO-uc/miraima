@@ -5,10 +5,6 @@
   <div class="user-nickname"><h3><%= @user.nickname %></h3></div>
   <div class='user-type'>タイプ: <%= @user.type.name %></div>
   <div class='user-info'>
-  <% if @user.type.name == 'ワーカー'%>
-    
-  <% else %>
   <%= render partial: 'profiles/show' %>
-  <% end %>
   </div>
 </div>
