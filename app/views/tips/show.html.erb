@@ -1,0 +1,8 @@
+<div class='tip'>
+  <%= @tip.user.nickname%>
+  <%= @tip.text %>
+  <%= l @tip.created_at %>
+  <% if user_signed_in? && (@tip.user_id == current_user.id) %>
+  <%= link_to '削除', tip_path(@tip), method: :delete %>
+  <% end %>
+</div>
