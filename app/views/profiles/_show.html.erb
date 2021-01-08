@@ -1,12 +1,12 @@
 <div class="user-profile">
   <div class='profile'>
-    <% if @user.profile %>
-    <%= @user.profile.self_introduction %>
+    <% if @user.profile && (@user.profile.self_introduction != '')%>
+    自己紹介: <%= @user.profile.self_introduction %>
     <%end%>
   </div>
   <div class='website'>
-    <% if @user.profile %>
-    <%= @user.profile.website %>
+    <% if @user.profile && (@user.profile.website != '') %>
+    ウェブサイト: <%= @user.profile.website %>
     <% end %>
   </div>
 </div>
