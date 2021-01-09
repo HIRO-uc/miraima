@@ -10,9 +10,9 @@
       ウェブサイト: <%= @user.profile.website %>
       <% end %>
     </div>
-    <% if @user.profile.blank?%>
+    <% if user_signed_in? && (current_user.id == @user.id) && @user.profile.blank?%>
     <%= link_to 'プロフィールを編集', new_user_profile_path(@user) %>
-    <% else %>
+    <% elsif user_signed_in? && (current_user.id == @user.id) %>
     <%= link_to 'プロフィールを編集', "/users/#{@user.id}/profiles/#{@user.profile.id}/edit" %>
     <% end%>
   </div>
@@ -39,9 +39,9 @@
       <% end %>
     </div>
   </div>
-  <% if @user.career.blank? && @user.type.name == 'ワーカー' %>
+  <% if user_signed_in? && (current_user.id == @user.id) && @user.career.blank? && @user.type.name == 'ワーカー' %>
   <%= link_to 'キャリアを編集', new_user_career_path(@user) %>
-  <% elsif @user.type.name == 'ワーカー'%>
+  <% elsif user_signed_in? && (current_user.id == @user.id) && @user.type.name == 'ワーカー'%>
   <%= link_to 'キャリアを編集', "/users/#{@user.id}/careers/#{@user.career.id}/edit" %>
   <% end%>
   <% end %>
