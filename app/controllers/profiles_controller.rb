@@ -1,8 +1,9 @@
 class ProfilesController < ApplicationController
+  before_action :current_path_user, only: [:new, :create, :edit, :update, :move_to_index]
   before_action :current_path_profile, only: [:edit, :update]
+  before_action :move_to_index, only: [:new, :create, :edit, :update]
 
   def new
-    @user = User.find(params[:user_id])
     @profile = Profile.new
   end
 
@@ -25,7 +26,17 @@ class ProfilesController < ApplicationController
     params.require(:profile).permit(:self_introduction, :website).merge(user_id: params[:user_id])
   end
 
+  def current_path_user
+    @user = User.find(params[:user_id])
+  end
+
   def current_path_profile
     @profile = Profile.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in? && (current_user.id == @user.id)
+      redirect_to root_path
+    end 
   end
 end
