@@ -1,5 +1,5 @@
 class TipsController < ApplicationController
-  before_action :current_path_tip, only: [:show, :destroy]
+  before_action :current_path_tip, only: [:show, :destroy, :move_to_index]
   before_action :move_to_index, only: [:destroy]
 
   def index
