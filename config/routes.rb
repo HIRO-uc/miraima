@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'home/index'
   devise_for :users
   root to: 'tips#index'
   resources :tips, only: [:create, :new, :show, :destroy]
