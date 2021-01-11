@@ -11,7 +11,7 @@
     <div class='tips-index'>
       <% @tips.each do |tip| %>
       <div class='tip'>
-        <%= link_to(tip_path(tip), class: 'show-link') do %>
+        <%= link_to(tip_path(tip), class: 'tip-link') do %>
         <%= tip.user.nickname%>
         <%= tip.text %>
         <%= l tip.created_at %>
