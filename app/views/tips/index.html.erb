@@ -2,7 +2,7 @@
 <div class='main'>
   <div class='side-bar'>
     <p>tips一覧</p>
-    <p><%= link_to '質問一覧', '#' %></p>
+    <p><%= link_to '質問一覧', questions_path %></p>
   </div>
   <div class='tips'>
     <% if user_signed_in? %>
@@ -11,7 +11,7 @@
     <div class='tips-index'>
       <% @tips.each do |tip| %>
       <div class='tip'>
-        <%= link_to(tip_path(tip), class: 'show-link') do %>
+        <%= link_to(tip_path(tip), class: 'tip-link') do %>
         <%= tip.user.nickname%>
         <%= tip.text %>
         <%= l tip.created_at %>

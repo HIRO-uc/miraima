@@ -1,0 +1,26 @@
+<%= render partial: 'shared/header' %>
+<div class='main'>
+  <div class='side-bar'>
+    <p><%= link_to 'tips一覧', root_path %></p>
+    <p>質問一覧</p>
+  </div>
+  <div class='questions'>
+    <% if user_signed_in? %>
+    <%= link_to '質問を投稿する', new_question_path %>
+    <% end %>
+    <div class='questions-index'>
+      <% @questions.each do |question| %>
+      <div class='question'>
+      <% if question.type_id == 0 || (user_signed_in? && (question.type_id == current_user.type_id)) %>
+        <%= link_to(question_path(question), class: 'question-link') do %>
+        <%= question.title %>
+        <%= question.user.nickname %>さんの質問
+        <%= l question.created_at %>
+        <% end %>
+      <% end %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

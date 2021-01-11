@@ -1,0 +1,21 @@
+<%= link_to '質問一覧', questions_path %>
+<div class='question'>
+  <div class='question-user'>
+  <%= @question.user.nickname %>さんの質問
+  <%= l @question.created_at %>
+  </div>
+  <div class='question-title'>
+  <%= @question.title%>
+  </div>
+  <div class='question-text'>
+  <%= @question.text %>
+  </div>
+  
+  <% if user_signed_in? && (@question.user_id == current_user.id) %>
+    <% unless @question.type_id == 0 %>
+    回答可能なユーザー: <%= @question.type.name %>
+    <% end %>
+  <%= link_to '編集', edit_question_path(@question) %>
+  <%= link_to '削除', question_path(@question), method: :delete %>
+  <% end %>
+</div>

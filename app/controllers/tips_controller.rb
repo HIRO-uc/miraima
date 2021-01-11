@@ -1,11 +1,11 @@
 class TipsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :current_path_tip, only: [:show, :destroy, :move_to_index]
   before_action :move_to_index, only: [:destroy]
 
   def index
     if user_signed_in?
       @user = User.find(current_user.id)
-      #@profiles = Profile.new
     end
     @tips = Tip.includes(:user).order(created_at: :desc)
   end
@@ -38,7 +38,7 @@ class TipsController < ApplicationController
   end
 
   def move_to_index
-    unless user_signed_in? && (@tip.user_id == current_user.id)
+    unless @tip.user_id == current_user.id
       redirect_to root_path
     end
   end
