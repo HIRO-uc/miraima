@@ -17,6 +17,12 @@
       </div>
       <%= f.text_area :text, class: 'input-default', id: 'question-text' %>
     </div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">回答できるユーザーを絞り込む</label>
+      </div>
+      <%= f.select :user_type_id, [ ['どちらも回答可', 0], ['ワーカー', 1], ['ビギナー', 2 ] ], class: 'input-default', id: "user-type" %>
+    </div>
     <div class='register-btn'>
     <%= f.submit '質問を投稿' %>
     </div>
