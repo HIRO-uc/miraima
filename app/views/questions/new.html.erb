@@ -21,7 +21,8 @@
       <div class='form-text-wrap'>
         <label class="form-text">回答できるユーザーを絞り込む</label>
       </div>
-      <%= f.select :user_type_id, [ ['どちらも回答可', 0], ['ワーカー', 1], ['ビギナー', 2 ] ], class: 'input-default', id: "user-type" %>
+      <%= f.collection_select(:type_id, Type.all, :id, :name, {}, {class:"type-select"})%>
+      ※選択しなければ全てのユーザーに回答を求めます
     </div>
     <div class='register-btn'>
     <%= f.submit '質問を投稿' %>

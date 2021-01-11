@@ -11,11 +11,13 @@
     <div class='questions-index'>
       <% @questions.each do |question| %>
       <div class='question'>
+      <% if question.type_id == 0 || (user_signed_in? && (question.type_id == current_user.type_id)) %>
         <%= link_to(question_path(question), class: 'question-link') do %>
         <%= question.title %>
         <%= question.user.nickname %>さんの質問
         <%= l question.created_at %>
         <% end %>
+      <% end %>
       </div>
       <% end %>
     </div>
