@@ -4,6 +4,9 @@ class QuestionsController < ApplicationController
   before_action :move_to_index, only: [:edit, :update, :destroy]
 
   def index
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
     @questions = Question.includes(:user).order(created_at: :desc)
   end
 

@@ -4,6 +4,9 @@ class TipsController < ApplicationController
   before_action :move_to_index, only: [:destroy]
 
   def index
+    if user_signed_in?
+      @user = User.find(current_user.id)
+    end
     @tips = Tip.includes(:user).order(created_at: :desc)
   end
 
