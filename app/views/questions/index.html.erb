@@ -11,9 +11,9 @@
     <div class='questions-index'>
       <% @questions.each do |question| %>
       <div class='question'>
-        <%= link_to(question_path(question), class: 'show-link') do %>
+        <%= link_to(question_path(question), class: 'question-link') do %>
         <%= question.title %>
-        <%= question.text %>
+        <%= question.user.nickname %>さんの質問
         <%= l question.created_at %>
         <% end %>
       </div>
