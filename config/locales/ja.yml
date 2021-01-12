@@ -28,3 +28,8 @@ ja:
        ideal_candidate: 業界が求める人物像
        can_do_now: 今からできること
        recommended_book: おすすめの本
+ activerecord:
+   attributes:
+     question:
+       title: タイトル
+       text: 質問内容
