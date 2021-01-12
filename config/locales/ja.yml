@@ -25,3 +25,5 @@ ja:
      question:
        title: タイトル
        text: 質問内容
+     answer:
+       text: 回答内容
