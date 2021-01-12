@@ -1,0 +1,17 @@
+<%= link_to '戻る', question_path(@question) %>
+<div class='answerss-form'>
+<%= form_with model: @answer, url: question_answers_path(@question), local: true do |f| %>
+  <div>
+    <div class="form-group">
+      <div class='form-text-wrap'>
+        <label class="form-text">回答</label>
+      </div>
+      <%= f.text_area :text, class: 'input-default', id: 'answer-text' %>
+    </div>
+    <div class='register-btn'>
+    <%= f.submit '回答する' %>
+    </div>
+  </div>
+<% end%>
+</div>
+
