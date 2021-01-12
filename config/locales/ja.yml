@@ -16,3 +16,8 @@ ja:
    attributes:
      tip:
        text: tips
+ activerecord:
+   attributes:
+     profile:
+       self_introduction: 自己紹介
+       website: ウェブサイト
