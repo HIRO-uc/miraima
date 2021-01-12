@@ -12,24 +12,16 @@ ja:
        type_id: ユーザータイプ
        text: テキスト
        image: 画像
- activerecord:
-   attributes:
      tip:
        text: tips
- activerecord:
-   attributes:
      profile:
        self_introduction: 自己紹介
        website: ウェブサイト
- activerecord:
-   attributes:
      career:
        worthwhile: 仕事のやりがい
        ideal_candidate: 業界が求める人物像
        can_do_now: 今からできること
        recommended_book: おすすめの本
- activerecord:
-   attributes:
      question:
        title: タイトル
        text: 質問内容
