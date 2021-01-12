@@ -12,3 +12,7 @@ ja:
        type_id: ユーザータイプ
        text: テキスト
        image: 画像
+ activerecord:
+   attributes:
+     tip:
+       text: tips
