@@ -1,16 +1,15 @@
 <%= link_to '戻る', question_path(@question) %>
 <div class='answers-form'>
 <%= form_with model: @answer, url: "/questions/#{@question.id}/answers/#{@answer.id}", local: true do |f| %>
-  <div>
-    <div class="form-group">
-      <div class='form-text-wrap'>
-        <label class="form-text">回答</label>
-      </div>
-      <%= f.text_area :text, class: 'input-default', id: 'answer-text' %>
+  <%= render 'shared/error_messages', model: @answer %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">回答する</label>
     </div>
-    <div class='register-btn'>
-    <%= f.submit '回答する' %>
-    </div>
+    <%= f.text_area :text, class: 'input-default', id: 'answer-text' %>
+  </div>
+  <div class='register-btn'>
+  <%= f.submit '回答する' %>
   </div>
 <% end%>
 </div>

@@ -16,16 +16,22 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @question.save
-    redirect_to questions_path
+    if @question.save
+      redirect_to questions_path
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @question.update(question_params)
-    redirect_to question_path(@question)
+    if @question.update(question_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def show

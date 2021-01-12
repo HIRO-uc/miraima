@@ -10,16 +10,22 @@ class CareersController < ApplicationController
 
   def create
     @career = Career.new(career_params)
-    @career.save
-    redirect_to user_path(@career.user_id)
+    if @career.save
+      redirect_to user_path(@career.user_id)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @career.update(career_params)
-    redirect_to user_path(@career.user_id)
+    if @career.update(career_params)
+      redirect_to user_path(@career.user_id)
+    else
+      render :edit
+    end
   end
 
   private
