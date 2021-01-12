@@ -11,16 +11,22 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
-    @answer.save
-    redirect_to question_path(@question)
+    if @answer.save
+      redirect_to question_path(@question)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @answer.update(answer_params)
-    redirect_to question_path(@question)
+    if @answer.update(answer_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def destroy
