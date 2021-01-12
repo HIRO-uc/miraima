@@ -10,16 +10,22 @@ class ProfilesController < ApplicationController
 
   def create
     @profile = Profile.new(profile_params)
-    @profile.save
-    redirect_to user_path(@profile.user_id)
+    if @profile.save
+      redirect_to user_path(@profile.user_id)
+    else
+      render :new
+    end
   end
 
   def edit
   end
 
   def update
-    @profile.update(profile_params)
-    redirect_to user_path(@profile.user_id)
+    if @profile.update(profile_params)
+      redirect_to user_path(@profile.user_id)
+    else
+      render :edit
+    end
   end
 
   private
