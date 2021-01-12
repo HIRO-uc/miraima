@@ -1,6 +1,7 @@
 <%= link_to '戻る', root_path %>
 <div class='tips-form'>
 <%= form_with model: @tip, url: tips_path, local: true do |f| %>
+<%= render 'shared/error_messages', model:@tip %>
 <div class="form-group">
   <div class='form-text-wrap'>
     <label class="form-text">tipsを投稿</label>

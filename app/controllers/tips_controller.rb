@@ -16,8 +16,11 @@ class TipsController < ApplicationController
 
   def create
     @tip = Tip.new(tip_params)
-    @tip.save
-    redirect_to root_path
+    if @tip.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def show
