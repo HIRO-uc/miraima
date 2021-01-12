@@ -16,6 +16,11 @@
         <%= question.title %>
         <%= question.user.nickname %>さんの質問
         <%= l question.created_at %>
+        <div class='answer-user-type'>
+          <% unless question.type_id == 0 %>
+            回答可能なユーザー: <%= question.type.name %>
+          <% end %>
+        </div>
         <% end %>
       <% end %>
       </div>
