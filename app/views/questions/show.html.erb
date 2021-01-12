@@ -1,8 +1,13 @@
 <%= link_to '質問一覧', questions_path %>
-<div class='question'>
+<div class='question-wrapper'>
   <div class='question-user'>
   <%= @question.user.nickname %>さんの質問
   <%= l @question.created_at %>
+  </div>
+  <div class='answer-user-type'>
+  <% unless @question.type_id == 0 %>
+    回答可能なユーザー: <%= @question.type.name %>
+  <% end %>
   </div>
   <div class='question-title'>
   <%= @question.title%>
@@ -12,10 +17,33 @@
   </div>
   
   <% if user_signed_in? && (@question.user_id == current_user.id) %>
-    <% unless @question.type_id == 0 %>
-    回答可能なユーザー: <%= @question.type.name %>
-    <% end %>
   <%= link_to '編集', edit_question_path(@question) %>
   <%= link_to '削除', question_path(@question), method: :delete %>
   <% end %>
+</div>
+
+<div class='answer-wrapper'>
+  <div class='new-answer-link'>
+  <% if @question.user_id != current_user.id %>
+  <%= link_to '回答する', new_question_answer_path(@question) %>
+  <% end %>
+  </div>
+  <div class='answer-index'>
+  <% @answers.each do |answer| %>
+  <div>
+  <div class='answer-user'></div>
+  <%= link_to "#{answer.user.nickname}", user_path(answer.user.id) %>さんの回答
+  <%= l answer.created_at %>
+  </div>
+  <div class='answer-text'>
+  <%= answer.text %>
+  </div>
+  <div class='question-edit-link'>
+  <% if user_signed_in? && (answer.user_id == current_user.id) %>
+  <%= link_to '編集', "/questions/#{params[:id]}/answers/#{answer.id}/edit" %>
+  <%= link_to '削除', "/questions/#{params[:id]}/answers/#{answer.id}", method: :delete %>
+  <% end %>
+  </div>
+  <% end %>
+  </div>
 </div>

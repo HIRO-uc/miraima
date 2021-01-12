@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one :career
   has_many :tips
   has_many :questions
+  has_many :answers
   validates :password,          format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]{8,100}+\z/i, message: 'は半角英数字どちらも含む8文字以上で入力してください' }
   with_options presence: true do
     validates :nickname

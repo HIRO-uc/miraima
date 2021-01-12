@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @answers = @question.answers.includes(:user).order(created_at: :desc)
   end
 
   def destroy
